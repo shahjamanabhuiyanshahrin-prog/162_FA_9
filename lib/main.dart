@@ -9,23 +9,22 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: IDCard(),
+      home: IDCardPage(),
     );
   }
 }
 
-class IDCard extends StatelessWidget {
+class IDCardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey[100],
+      backgroundColor: Colors.blueGrey[200],
       body: SafeArea(
         child: Center(
           child: AspectRatio(
             aspectRatio: 9 / 16,
             child: Container(
-              margin: EdgeInsets.all(20),
-              padding: EdgeInsets.all(20),
+              margin: EdgeInsets.all(16),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(20),
@@ -38,53 +37,60 @@ class IDCard extends StatelessWidget {
                 ],
               ),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
 
-                  // 🔵 TOP TITLE
-                  Text(
-                    "Digital ID Card",
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      letterSpacing: 1.2,
-                    ),
+                  AppBar(
+                    title: Text("Digital ID Card"),
+                    centerTitle: true,
+                    backgroundColor: Colors.blue,
+                    automaticallyImplyLeading: false,
+                    elevation: 0,
                   ),
 
-                  SizedBox(height: 15),
+                  SizedBox(height: 10),
 
                   CircleAvatar(
-                    radius: 55,
+                    radius: 50,
                     backgroundImage: AssetImage('assets/profile.jpg'),
                   ),
 
-                  SizedBox(height: 15),
+                  SizedBox(height: 10),
 
                   Text(
                     "Shah Jamana Bhuiyan",
-                    textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
+                    textAlign: TextAlign.center,
                   ),
 
-                  SizedBox(height: 8),
+                  SizedBox(height: 5),
 
-                  Text("Batch: 63rd"),
                   Text("Department: CSE"),
-
-                  SizedBox(height: 15),
-
-                  Divider(),
+                  Text("Batch: 63rd"),
 
                   SizedBox(height: 10),
 
-                  Text("ID: 0182410012101162"),
-                  SizedBox(height: 5),
-                  Text("Email: jmna123@gmail.com"),
-                  SizedBox(height: 5),
-                  Text("Phone: 0187788999"),
+                  Divider(),
+
+                  ListTile(
+                    leading: Icon(Icons.badge),
+                    title: Text("0182410012101162"),
+                    subtitle: Text("ID Number"),
+                  ),
+
+                  ListTile(
+                    leading: Icon(Icons.email),
+                    title: Text("jmna123@gmail.com"),
+                    subtitle: Text("Email"),
+                  ),
+
+                  ListTile(
+                    leading: Icon(Icons.phone),
+                    title: Text("0187788999"),
+                    subtitle: Text("Phone"),
+                  ),
                 ],
               ),
             ),
